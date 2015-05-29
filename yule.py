@@ -3,9 +3,22 @@
 
 """
 
-Y.outube Ü.rl L.ist É.xtrapolator
+Y.tube Ü.rl L.ist É.xtrapolator
 //Y.Ü.L.É//
 by dddkiddd;
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 """
 
@@ -43,13 +56,11 @@ def KILLMODE():
     if (FIRE):
         cdown = cdown + 1
         global urlList, urlBList, Stats, stats
-        # generate random youtube link
+        # generate random ytube link
         x = ''.join([random.choice(string.ascii_letters + string.digits + "_-") for n in xrange(11)])
         while x in urlList or x in urlBList:
             print "Generated Duplicate Link; Re-generating"
             x = ''.join([random.choice(string.ascii_letters + string.digits + "_-") for n in xrange(11)])
-        # commented below is to test for successful tries
-        # x = 'soe3t2uvcWU' # 'Yazoo - Don't Go (Extended Mix) (12" Vinyl Single) - Youtube'
         br = Browser()
         try:
             res = br.open("http://www.youtube.com/watch?v=" + x)
@@ -60,7 +71,6 @@ def KILLMODE():
             if title.renderContents() != "YouTube":
                 urlList.append("http://www.youtube.com/watch?v=" + x)
             # good links have other titles
-            # confusing programming, i know, deal with it
             else:
                 urlBList.append("http://www.youtube.com/watch?v="+ x)
 
